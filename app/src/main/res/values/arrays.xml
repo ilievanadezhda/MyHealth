@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="medicationtype">
+        <item>Додаток на исхраната</item>
+        <item>Антибиотик</item>
+        <item>Аналгетик</item>
+        <item>Антидепресив</item>
+        <item>Антиреуматик</item>
+        <item>Антихипертензив</item>
+        <item>Антидијабетик</item>
+        <item>Антихистамин</item>
+        <item>Седатив</item>
+        <item>Лек за остеопороза</item>
+        <item>Друго</item>
+    </string-array>
+</resources>

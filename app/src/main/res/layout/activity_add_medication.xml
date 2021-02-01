@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background5"
+    tools:context=".AddMedication">
+
+    <EditText
+        android:id="@+id/medication_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint="Име на лекот"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/medication_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/medication_type"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
+        android:entries="@array/medicationtype"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/medication_manufacturer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/medication_name" />
+
+    <EditText
+        android:id="@+id/medication_manufacturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint="Производител"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/medication_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/medication_type" />
+
+    <EditText
+        android:id="@+id/medication_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint="Број на таблети во пакувањето"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/medication_dosage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/medication_manufacturer" />
+
+    <EditText
+        android:id="@+id/medication_dosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:hint="Дозирање"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/medication_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_morning"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <CheckBox
+        android:id="@+id/checkbox_morning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedPartOfDay"
+        android:text="Наутро"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/checkbox_thursday"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_noon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/medication_dosage" />
+
+    <CheckBox
+        android:id="@+id/checkbox_noon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedPartOfDay"
+        android:text="Напладне"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/checkbox_thursday"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_evening"
+        app:layout_constraintStart_toEndOf="@id/checkbox_morning"
+        app:layout_constraintTop_toBottomOf="@id/medication_dosage" />
+
+    <CheckBox
+        android:id="@+id/checkbox_evening"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedPartOfDay"
+        android:text="Навечер"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/checkbox_thursday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/checkbox_noon"
+        app:layout_constraintTop_toBottomOf="@id/medication_dosage" />
+
+    <CheckBox
+        android:id="@+id/checkbox_monday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="П"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_tuesday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_morning" />
+
+    <CheckBox
+        android:id="@+id/checkbox_tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="В"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_wednesday"
+        app:layout_constraintStart_toEndOf="@id/checkbox_monday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <CheckBox
+        android:id="@+id/checkbox_wednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="С"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_thursday"
+        app:layout_constraintStart_toEndOf="@id/checkbox_tuesday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <CheckBox
+        android:id="@+id/checkbox_thursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="Ч"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_friday"
+        app:layout_constraintStart_toEndOf="@id/checkbox_wednesday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <CheckBox
+        android:id="@+id/checkbox_friday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="П"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_saturday"
+        app:layout_constraintStart_toEndOf="@id/checkbox_thursday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <CheckBox
+        android:id="@+id/checkbox_saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="С"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/addbutton"
+        app:layout_constraintEnd_toStartOf="@id/checkbox_sunday"
+        app:layout_constraintStart_toEndOf="@id/checkbox_friday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <CheckBox
+        android:id="@+id/checkbox_sunday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:onClick="onCheckBoxClickedDay"
+        android:text="Н"
+        android:textColor="#d76b73"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/addbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/checkbox_saturday"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_noon" />
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/buttonstyle"
+        android:clickable="true"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Додади лек"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_monday" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
